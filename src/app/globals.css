@@ -33,12 +33,10 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
   scroll-padding-top: 96px;
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-instrument), 'Instrument Sans', system-ui, sans-serif;
