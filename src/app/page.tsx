@@ -144,8 +144,8 @@ export default function Page() {
               leverages various platforms, like Vapi and Retell, to handle
               telephony, dial-out, and real-time orchestration of the
               speech-to-text → LLM → text-to-speech audio loop. Both are integrated
-              and operate under executed BAAs on their HIPAA-eligible service
-              tiers; provider selection is per-deployment.
+              and operate under BAAs on their HIPAA-eligible service tiers;
+              provider selection is per-deployment.
             </p>
             <p>
               <strong>Layer 2 — Speech I/O.</strong> OpenAI Whisper for real-time
@@ -206,8 +206,8 @@ export default function Page() {
           <QABlock id="i-q6" number="Q6" q="What resources are needed to implement?">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                Executed BAAs covering ClinicBridge.ai and each named subprocessor
-                (Section V).
+                BAAs covering ClinicBridge.ai and each named subprocessor —
+                fully executed before any PHI is transmitted (Section V).
               </li>
               <li>
                 AWS-hosted infrastructure managed entirely by ClinicBridge.ai — no
@@ -221,9 +221,9 @@ export default function Page() {
               <li>Coordinator dashboard training (~2–4 hours).</li>
             </ul>
             <p>
-              During the design partner period, ClinicBridge.ai will work with
+              During the design-partner period, ClinicBridge.ai will work with
               RWJBarnabas to scope and plan a future Epic integration for
-              post-pilot deployment. To support this effort, ClinicBridge requests
+              post-launch deployment. To support this effort, ClinicBridge requests
               access to appropriate internal Epic resources for integration scoping
               and development, including access to a non-production environment.
             </p>
@@ -311,13 +311,20 @@ export default function Page() {
 
           <QABlock id="ii-q1" number="Q1" q="Model statistics or KPIs that speak to platform reliability.">
             <p>
-              ClinicBridge.ai is at the pilot deployment stage and has established
-              a design partnership specifically with RWJBarnabas Health to
-              collaboratively refine and validate workflow integration, usability,
-              and clinical impact. The KPIs below are the operational targets used
-              to evaluate the platform; per-customer measured values are reported
-              monthly during pilot and steady-state operation. Pilot-stage measured
-              values are available on request.
+              ClinicBridge.ai is launching a 90- to 120-day design partnership
+              with select transplant centers, with RWJBarnabas Health as a
+              named partner. The engagement is deliberately scoped: the pre-evaluation
+              intake is built around each center&apos;s protocol, human oversight
+              is maintained throughout, and impact is measured against real
+              referral-to-evaluation timelines — not a demo. The partnership
+              structure is being co-authored with each design partner so it
+              fits the organization.
+            </p>
+            <p>
+              The KPIs below are the operational targets used to evaluate the
+              platform; per-customer measured values are reported monthly
+              during the design-partner period and steady-state operation.
+              Early-deployment measured values are available on request.
             </p>
             <DataTable
               caption="Operational KPI targets"
@@ -325,7 +332,6 @@ export default function Page() {
               rows={[
                 ["Call Completion Rate", "≥ 75%", "Initiated calls that reach a structured pre-evaluation completion. Target only — production rates are population-dependent."],
                 ["STT Confidence Threshold", "≥ 0.85", "Per-utterance confidence floor. Below threshold triggers an automatic clarification rather than an inferred response."],
-                ["EHR Write Success", "≥ 99%", "Completed calls posting structured fields to Epic. Failures generate an automated alert within 15 minutes."],
                 ["STT Word Error Rate", "7–12%", "Whisper performance band on conversational English per OpenAI documentation; varies by accent and audio quality."],
                 ["Coordinator Override", "< 10%", "Percentage of calls where a coordinator changes the AI's eligibility recommendation. If this stays above 10%, the team will review and improve the AI scripts and data extraction logic."],
                 ["Shadow-Reviewed Calls", "≥ 10%", "Minimum sample reviewed by a clinical coordinator during the first 90 days to validate extraction accuracy."],
@@ -419,7 +425,7 @@ export default function Page() {
                 characteristics. It transcribes; it does not profile.
               </li>
               <li>
-                <strong>Ongoing monitoring and feedback.</strong> Pilot deployments
+                <strong>Ongoing monitoring and feedback.</strong> Design-partner deployments
                 include ongoing review of transcription accuracy, workflow
                 outcomes, escalation patterns, and user feedback to identify
                 potential bias, accessibility gaps, or inconsistent performance
@@ -500,7 +506,7 @@ export default function Page() {
                 rate &gt; 10% triggers a structured prompt and script review.
               </li>
               <li>
-                Random sampling (≥ 10% during pilot, configurable) provides a
+                Random sampling (≥ 10% during the design-partner period, configurable) provides a
                 human-reviewed ground-truth set for ongoing accuracy tracking.
               </li>
             </ul>
@@ -531,10 +537,6 @@ export default function Page() {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>CloudWatch monitoring on compute, memory, and application health.</li>
-              <li>
-                Automated P1 alerts on EHR write failures, elevated STT error
-                rates, and call-abandonment spikes.
-              </li>
               <li>Monthly review of Security Hub findings.</li>
             </ul>
 
@@ -556,13 +558,14 @@ export default function Page() {
           <QABlock id="v-q1" number="Q1" q="Does RWJBarnabas Health data leave RWJBarnabas Health walls?">
             <p>
               Patient data is transmitted to and stored in the ClinicBridge.ai
-              HIPAA-compliant AWS environment (us-east-1) under executed BAA.
-              During a call, audio and transcript pass through the named
-              subprocessors (Vapi, OpenAI, ElevenLabs) — each under a BAA and
-              configured for zero training-data retention. The post-call transcript
-              is sent to Anthropic Claude Haiku for extraction under the same
-              terms. No patient data is shared with any party not covered by an
-              executed BAA.
+              HIPAA-compliant AWS environment (us-east-1) under BAA. During a
+              call, audio and transcript pass through the named subprocessors
+              (Vapi, OpenAI, ElevenLabs) — each under a BAA and configured for
+              zero training-data retention. The post-call transcript is sent to
+              Anthropic Claude Haiku for extraction under the same terms. No
+              patient data is shared with any party not covered by a BAA. All
+              BAAs will be fully executed before any PHI is transmitted under
+              this engagement.
             </p>
           </QABlock>
 
@@ -616,18 +619,22 @@ export default function Page() {
             <p>
               The following are the only entities that receive PHI (audio,
               transcript, or structured extraction output) during operation. Each
-              operates under an executed BAA.
+              operates under a Business Associate Agreement.{" "}
+              <strong>
+                All BAAs will be fully executed before any PHI is transmitted
+                under this engagement.
+              </strong>
             </p>
             <DataTable
               caption="Subprocessors"
-              headers={["Subprocessor", "Role", "Status"]}
+              headers={["Subprocessor", "Role", "Notes"]}
               rows={[
-                ["Amazon Web Services", "Hosting", "BAA Executed"],
-                ["Vapi", "Voice orchestration", "BAA Executed"],
-                ["Retell", "Voice orchestration", "BAA Executed"],
-                ["OpenAI", "STT (Whisper) + in-call LLM", "BAA Executed · Zero retention"],
-                ["ElevenLabs", "Text-to-speech", "BAA Executed"],
-                ["Anthropic", "Post-call extraction", "BAA Executed · Zero retention"],
+                ["Amazon Web Services", "Hosting", "Under BAA"],
+                ["Vapi", "Voice orchestration", "Under BAA"],
+                ["Retell", "Voice orchestration", "Under BAA"],
+                ["OpenAI", "STT (Whisper) + in-call LLM", "Under BAA · Zero retention"],
+                ["ElevenLabs", "Text-to-speech", "Under BAA"],
+                ["Anthropic", "Post-call extraction", "Under BAA · Zero retention"],
                 ["No other PHI recipients", "—", "List is exhaustive"],
               ]}
             />
