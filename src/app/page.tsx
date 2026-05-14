@@ -312,8 +312,7 @@ export default function Page() {
           <QABlock id="ii-q1" number="Q1" q="Model statistics or KPIs that speak to platform reliability.">
             <p>
               ClinicBridge.ai is launching a 90- to 120-day design partnership
-              with select transplant centers, with RWJBarnabas Health as a
-              named partner. The engagement is deliberately scoped: the pre-evaluation
+              with select transplant centers. RWJBarnabas Health is one of them. The engagement is deliberately scoped: the pre-evaluation
               intake is built around each center&apos;s protocol, human oversight
               is maintained throughout, and impact is measured against real
               referral-to-evaluation timelines — not a demo. The partnership
