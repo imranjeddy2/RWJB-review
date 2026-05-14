@@ -543,7 +543,7 @@ export default function Page() {
               caption="SLA targets"
               headers={["Target", "Commitment"]}
               rows={[
-                ["Platform Uptime", "99.9% (excluding scheduled maintenance announced ≥ 48 hours in advance)"],
+                ["Platform Uptime", "99.5% (excluding scheduled maintenance announced ≥ 48 hours in advance)"],
                 ["Performance Review", "Monthly KPI dashboard review with the customer; quarterly cohort-metric deep-dive"],
               ]}
             />
