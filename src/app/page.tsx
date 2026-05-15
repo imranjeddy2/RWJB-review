@@ -206,8 +206,8 @@ export default function Page() {
           <QABlock id="i-q6" number="Q6" q="What resources are needed to implement?">
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                BAAs covering ClinicBridge.ai and each named subprocessor —
-                fully executed before any PHI is transmitted (Section V).
+                BAAs covering ClinicBridge.ai and each named subprocessor
+                (Section V).
               </li>
               <li>
                 AWS-hosted infrastructure managed entirely by ClinicBridge.ai — no
@@ -562,9 +562,7 @@ export default function Page() {
               (Vapi, OpenAI, ElevenLabs) — each under a BAA and configured for
               zero training-data retention. The post-call transcript is sent to
               Anthropic Claude Haiku for extraction under the same terms. No
-              patient data is shared with any party not covered by a BAA. All
-              BAAs will be fully executed before any PHI is transmitted under
-              this engagement.
+              patient data is shared with any party not covered by a BAA.
             </p>
           </QABlock>
 
@@ -618,11 +616,7 @@ export default function Page() {
             <p>
               The following are the only entities that receive PHI (audio,
               transcript, or structured extraction output) during operation. Each
-              operates under a Business Associate Agreement.{" "}
-              <strong>
-                All BAAs will be fully executed before any PHI is transmitted
-                under this engagement.
-              </strong>
+              operates under a Business Associate Agreement.
             </p>
             <DataTable
               caption="Subprocessors"
